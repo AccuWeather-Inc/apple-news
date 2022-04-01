@@ -341,8 +341,8 @@ class Export extends Action {
 		}
 
 		// Get the date.
-		if ( empty( $date ) && ! empty( $post->post_date_gmt ) ) {
-			$date = $post->post_date_gmt;
+		if ( empty( $date ) && ! empty( $post->post_modified ) ) {
+			$date = $post->post_modified;
 		}
 
 		// Set the default date format.
@@ -372,7 +372,7 @@ class Export extends Action {
 		} else {
 			// Use the default format.
 			$byline = sprintf(
-				'by %1$s | %2$s',
+				'By %1$s | Updated %2$s',
 				$author,
 				apple_news_date( $date_format, strtotime( $date ) )
 			);
